@@ -16,7 +16,7 @@ local COMMAND_CLASS_CONFIGURATION = 0x70
 local deviceManager = require "telldus.DeviceManager"
 
 
-function setConfiguration( )
+function onInit( )
 	local implant = deviceManager:findByName(implantdevice)
 	if implant == nil then
 		print("Could not find the device %s", deviceName)
