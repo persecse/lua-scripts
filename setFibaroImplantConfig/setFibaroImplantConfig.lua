@@ -17,7 +17,7 @@ local deviceManager = require "telldus.DeviceManager"
 
 
 function onInit( )
-	local implant = deviceManager:findByName(implantdevice)
+	local implant = deviceManager:findByName(deviceName)
 	if implant == nil then
 		print("Could not find the device %s", deviceName)
 		return
@@ -26,7 +26,7 @@ function onInit( )
 	local zwaveNode = implant:zwaveNode()
 	local cmdClass = zwaveNode:cmdClass(COMMAND_CLASS_CONFIGURATION)
 	if (cmdClass == nil) then
-		print("Device %s does not support COMMAND_CLASS_CONFIGURATION", rgb:name())
+		print("Device %s does not support COMMAND_CLASS_CONFIGURATION", implant:name())
 		return
 	end
 	print("Set %s to 20=0 and 21=0", zwaveNode:name() )
